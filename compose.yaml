@@ -1,0 +1,45 @@
+name: minecraft-server
+services:
+  minecraft:
+    container_name: minecraft
+    tty: true
+    stdin_open: true
+    restart: always
+    build:
+      dockerfile: Dockerfile
+    ports:
+      - 25565:25565
+    environment:
+      TZ: ${TZ}
+      MEMORY: ${MEMORY}
+      MCRCON_HOST: ${MCRCON_HOST}
+      MCRCON_PORT: ${MCRCON_PORT}
+      MCRCON_PASS: ${MCRCON_PASS}
+    volumes:
+      - type: bind
+        source: ./banned-ips.json
+        target: /root/banned-ips.json
+      - type: bind
+        source: ./banned-players.json
+        target: /root/banned-players.json
+      - type: bind
+        source: ./eula.txt
+        target: /root/eula.txt
+      - type: bind
+        source: ./ops.json
+        target: /root/ops.json
+      - type: bind
+        source: ./server.properties
+        target: /root/server.properties
+      - type: bind
+        source: ./whitelist.json
+        target: /root/whitelist.json
+      - type: bind
+        source: ./world
+        target: /root/world
+      - type: bind
+        source: ./backup
+        target: /root/backup
+      - type: bind
+        source: ./scripts
+        target: /root/scripts
