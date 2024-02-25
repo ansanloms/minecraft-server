@@ -13,9 +13,6 @@ services:
     environment:
       TZ: ${TZ}
       MEMORY: ${MEMORY}
-      MCRCON_HOST: ${MCRCON_HOST}
-      MCRCON_PORT: ${MCRCON_PORT}
-      MCRCON_PASS: ${MCRCON_PASS}
     volumes:
       - type: bind
         source: ./minecraft/banned-ips.json
@@ -44,3 +41,12 @@ services:
       - type: bind
         source: ./minecraft/scripts
         target: /root/scripts
+  rcon:
+    container_name: rcon
+    restart: no
+    build:
+      context: ./rcon
+      dockerfile: Dockerfile
+    environment:
+      MCRCON_PORT: ${MCRCON_PORT}
+      MCRCON_PASS: ${MCRCON_PASS}
