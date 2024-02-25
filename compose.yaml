@@ -6,6 +6,7 @@ services:
     stdin_open: true
     restart: always
     build:
+      context: ./minecraft
       dockerfile: Dockerfile
     ports:
       - 25565:25565
@@ -17,29 +18,29 @@ services:
       MCRCON_PASS: ${MCRCON_PASS}
     volumes:
       - type: bind
-        source: ./banned-ips.json
+        source: ./minecraft/banned-ips.json
         target: /root/banned-ips.json
       - type: bind
-        source: ./banned-players.json
+        source: ./minecraft/banned-players.json
         target: /root/banned-players.json
       - type: bind
-        source: ./eula.txt
+        source: ./minecraft/eula.txt
         target: /root/eula.txt
       - type: bind
-        source: ./ops.json
+        source: ./minecraft/ops.json
         target: /root/ops.json
       - type: bind
-        source: ./server.properties
+        source: ./minecraft/server.properties
         target: /root/server.properties
       - type: bind
-        source: ./whitelist.json
+        source: ./minecraft/whitelist.json
         target: /root/whitelist.json
       - type: bind
-        source: ./world
+        source: ./minecraft/world
         target: /root/world
       - type: bind
-        source: ./backup
+        source: ./minecraft/backup
         target: /root/backup
       - type: bind
-        source: ./scripts
+        source: ./minecraft/scripts
         target: /root/scripts
