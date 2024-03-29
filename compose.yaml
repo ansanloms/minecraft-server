@@ -42,6 +42,48 @@ services:
       - type: bind
         source: ./minecraft-vanilla/scripts
         target: /root/scripts
+  minecraft-paper:
+    tty: true
+    stdin_open: true
+    build:
+      context: ./minecraft-paper
+      dockerfile: Dockerfile
+    profiles:
+      - paper
+    ports:
+      - 25565:25565
+    environment:
+      TZ: ${TZ}
+      VERSION: ${VERSION:-latest}
+      MEMORY: ${MEMORY}
+    volumes:
+      - type: bind
+        source: ./minecraft-paper/banned-ips.json
+        target: /root/banned-ips.json
+      - type: bind
+        source: ./minecraft-paper/banned-players.json
+        target: /root/banned-players.json
+      - type: bind
+        source: ./minecraft-paper/eula.txt
+        target: /root/eula.txt
+      - type: bind
+        source: ./minecraft-paper/ops.json
+        target: /root/ops.json
+      - type: bind
+        source: ./minecraft-paper/server.properties
+        target: /root/server.properties
+      - type: bind
+        source: ./minecraft-paper/whitelist.json
+        target: /root/whitelist.json
+      - type: bind
+        source: ./minecraft-paper/world
+        target: /root/world
+      - type: bind
+        source: ./minecraft-paper/backup
+        target: /root/backup
+      - type: bind
+        source: ./minecraft-paper/scripts
+        target: /root/scripts
   rcon:
     restart: no
     build:
