@@ -1,52 +1,55 @@
 name: minecraft-server
 services:
-  minecraft:
-    container_name: minecraft
+  minecraft-vanilla:
     tty: true
     stdin_open: true
     restart: always
     build:
-      context: ./minecraft
+      context: ./minecraft-vanilla
       dockerfile: Dockerfile
+    profiles:
+      - vanilla
     ports:
       - 25565:25565
     environment:
       TZ: ${TZ}
+      VERSION: ${VERSION:-latest}
       MEMORY: ${MEMORY}
     volumes:
       - type: bind
-        source: ./minecraft/banned-ips.json
+        source: ./minecraft-vanilla/banned-ips.json
         target: /root/banned-ips.json
       - type: bind
-        source: ./minecraft/banned-players.json
+        source: ./minecraft-vanilla/banned-players.json
         target: /root/banned-players.json
       - type: bind
-        source: ./minecraft/eula.txt
+        source: ./minecraft-vanilla/eula.txt
         target: /root/eula.txt
       - type: bind
-        source: ./minecraft/ops.json
+        source: ./minecraft-vanilla/ops.json
         target: /root/ops.json
       - type: bind
-        source: ./minecraft/server.properties
+        source: ./minecraft-vanilla/server.properties
         target: /root/server.properties
       - type: bind
-        source: ./minecraft/whitelist.json
+        source: ./minecraft-vanilla/whitelist.json
         target: /root/whitelist.json
       - type: bind
-        source: ./minecraft/world
+        source: ./minecraft-vanilla/world
         target: /root/world
       - type: bind
-        source: ./minecraft/backup
+        source: ./minecraft-vanilla/backup
         target: /root/backup
       - type: bind
-        source: ./minecraft/scripts
+        source: ./minecraft-vanilla/scripts
         target: /root/scripts
   rcon:
-    container_name: rcon
     restart: no
     build:
       context: ./rcon
       dockerfile: Dockerfile
+    profiles:
+      - rcon
     environment:
       MCRCON_PORT: ${MCRCON_PORT}
       MCRCON_PASS: ${MCRCON_PASS}
