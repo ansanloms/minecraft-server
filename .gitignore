@@ -3,3 +3,7 @@
 !/minecraft-vanilla/backup/.gitkeep
 /minecraft-vanilla/world/*
 !/minecraft-vanilla/world/.gitkeep
+/minecraft-paper/backup/*
+!/minecraft-paper/backup/.gitkeep
+/minecraft-paper/world/*
+!/minecraft-paper/world/.gitkeep
