@@ -1,5 +1,5 @@
 .env
 /minecraft-vanilla/backup/*
-!/minecraft/backup/.gitkeep
+!/minecraft-vanilla/backup/.gitkeep
 /minecraft-vanilla/world/*
-!/minecraft/backup/world/.gitkeep
+!/minecraft-vanilla/world/.gitkeep

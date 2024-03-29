@@ -1,7 +1,7 @@
 FROM docker.io/openjdk:23-slim-bullseye
 
 WORKDIR /root/
-COPY download.sh .
+COPY ./scripts/download.sh .
 
 RUN apt-get update
 RUN apt-get install -y curl jq
