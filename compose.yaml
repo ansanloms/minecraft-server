@@ -3,7 +3,6 @@ services:
   minecraft-vanilla:
     tty: true
     stdin_open: true
-    restart: always
     build:
       context: ./minecraft-vanilla
       dockerfile: Dockerfile
