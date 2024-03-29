@@ -80,11 +80,32 @@ services:
         source: ./minecraft-paper/world
         target: /root/world
       - type: bind
+        source: ./minecraft-paper/world_nether
+        target: /root/world_nether
+      - type: bind
+        source: ./minecraft-paper/world_the_end
+        target: /root/world_the_end
+      - type: bind
         source: ./minecraft-paper/backup
         target: /root/backup
       - type: bind
         source: ./minecraft-paper/scripts
         target: /root/scripts
+      - type: bind
+        source: ./minecraft-paper/bukkit.yml
+        target: /root/bukkit.yml
+      - type: bind
+        source: ./minecraft-paper/commands.yml
+        target: /root/commands.yml
+      - type: bind
+        source: ./minecraft-paper/help.yml
+        target: /root/help.yml
+      - type: bind
+        source: ./minecraft-paper/permissions.yml
+        target: /root/permissions.yml
+      - type: bind
+        source: ./minecraft-paper/spigot.yml
+        target: /root/spigot.yml
   rcon:
     restart: no
     build:

@@ -7,3 +7,7 @@
 !/minecraft-paper/backup/.gitkeep
 /minecraft-paper/world/*
 !/minecraft-paper/world/.gitkeep
+/minecraft-paper/world_nether/*
+!/minecraft-paper/world_nether/.gitkeep
+/minecraft-paper/world_the_end/*
+!/minecraft-paper/world_the_end/.gitkeep
