@@ -11,4 +11,7 @@ RUN bash ./download.sh
 EXPOSE 25565
 EXPOSE 25575
 
+# Dynmap
+EXPOSE 8123
+
 ENTRYPOINT java -jar -Xms${MEMORY} -Xmx${MEMORY} ./server.jar nogui

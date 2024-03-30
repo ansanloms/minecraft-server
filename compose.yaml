@@ -52,6 +52,7 @@ services:
       - paper
     ports:
       - 25565:25565
+      - 8123:8123
     environment:
       TZ: ${TZ}
       VERSION: ${VERSION:-latest}
@@ -85,6 +86,9 @@ services:
       - type: bind
         source: ./minecraft-paper/world_the_end
         target: /root/world_the_end
+      - type: bind
+        source: ./minecraft-paper/plugins
+        target: /root/plugins
       - type: bind
         source: ./minecraft-paper/backup
         target: /root/backup

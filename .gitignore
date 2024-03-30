@@ -11,3 +11,5 @@
 !/minecraft-paper/world_nether/.gitkeep
 /minecraft-paper/world_the_end/*
 !/minecraft-paper/world_the_end/.gitkeep
+/minecraft-paper/plugins/*
+!/minecraft-paper/plugins/.gitkeep
