@@ -110,6 +110,9 @@ services:
       - type: bind
         source: ./minecraft-paper/spigot.yml
         target: /root/spigot.yml
+      - type: bind
+        source: ./minecraft-paper/config
+        target: /root/config
   rcon:
     restart: no
     build:
