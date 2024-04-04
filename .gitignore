@@ -13,3 +13,5 @@
 !/minecraft-paper/world_the_end/.gitkeep
 /minecraft-paper/plugins/*
 !/minecraft-paper/plugins/.gitkeep
+/client/data/*
+!/client/data/.gitkeep

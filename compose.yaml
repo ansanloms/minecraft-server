@@ -124,6 +124,20 @@ services:
       - type: bind
         source: ./minecraft-paper/config
         target: /root/config
+  client:
+    restart: no
+    build:
+      context: ./client
+      dockerfile: Dockerfile
+      args:
+        MCC_VERSION: ${MCC_VERSION}
+        MCC_ARCH: ${MCC_ARCH}
+    profiles:
+      - client
+    volumes:
+      - type: bind
+        source: ./client/data
+        target: /opt/data
   rcon:
     restart: no
     build:
