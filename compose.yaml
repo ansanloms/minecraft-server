@@ -13,18 +13,17 @@ services:
         target: /etc/nginx/templates/default.conf.template
         read_only: true
   minecraft-vanilla:
-    tty: true
-    stdin_open: true
     build:
       context: ./minecraft-vanilla
       dockerfile: Dockerfile
+      args:
+        VERSION: ${VERSION:-latest}
     profiles:
       - vanilla
     ports:
       - 25565:25565
     environment:
       TZ: ${TZ}
-      VERSION: ${VERSION:-latest}
       MEMORY: ${MEMORY}
     volumes:
       - type: bind
@@ -55,19 +54,18 @@ services:
         source: ./minecraft-vanilla/scripts
         target: /root/scripts
   minecraft-paper:
-    tty: true
-    stdin_open: true
     build:
       context: ./minecraft-paper
       dockerfile: Dockerfile
+      args:
+        VERSION: ${VERSION:-latest}
+        PAPER_BUILD: ${PAPER_BUILD:-latest}
     profiles:
       - paper
     ports:
       - 25565:25565
     environment:
       TZ: ${TZ}
-      VERSION: ${VERSION:-latest}
-      PAPER_BUILD: ${PAPER_BUILD:-latest}
       MEMORY: ${MEMORY}
     volumes:
       - type: bind

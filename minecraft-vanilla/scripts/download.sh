@@ -1,15 +1,15 @@
 #!/bin/bash
 set -euxo pipefail
 
-DOWNLOAD_VERSION="${VERSION:-latest}"
+VERSION="$1"
 
 # Get the latest MC version
-if [[ $DOWNLOAD_VERSION == latest ]]
+if [[ $VERSION == latest ]]
 then
-  DOWNLOAD_VERSION=$(curl --silent --location https://launchermeta.mojang.com/mc/game/version_manifest.json | jq -r ".latest.release")
+  VERSION=$(curl --silent --location https://launchermeta.mojang.com/mc/game/version_manifest.json | jq -r ".latest.release")
 fi
 
-PACKAGE_JSON_URL=$(curl --silent --location https://launchermeta.mojang.com/mc/game/version_manifest.json | jq -r ".versions[] | select(.id == \"${DOWNLOAD_VERSION}\") | .url")
+PACKAGE_JSON_URL=$(curl --silent --location https://launchermeta.mojang.com/mc/game/version_manifest.json | jq -r ".versions[] | select(.id == \"${VERSION}\") | .url")
 DOWNLOAD_INFO=$(curl --silent --location ${PACKAGE_JSON_URL} | jq -r ".downloads.server")
 
 curl --location --output server.jar "$(echo "${DOWNLOAD_INFO}" | jq -r ".url")"
