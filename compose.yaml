@@ -12,6 +12,12 @@ services:
         source: ./proxy/templates/default.conf.template
         target: /etc/nginx/templates/default.conf.template
         read_only: true
+      - type: bind
+        source: ./minecraft-vanilla/backup
+        target: /usr/local/www/backup/vanilla
+      - type: bind
+        source: ./minecraft-paper/backup
+        target: /usr/local/www/backup/paper
   minecraft-vanilla:
     build:
       context: ./minecraft-vanilla
