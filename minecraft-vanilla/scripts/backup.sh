@@ -1,9 +1,12 @@
 #!/bin/bash
-set -euxo pipefail
+set -euo pipefail
 
-now=$(date +%Y%m%d%H%M)
-backupPath="/root/backup/world-${now}.tar.gz"
+FILENAME="$(date --iso-8601="seconds").tar.gz"
+
+rm -rf /root/backup/world
 
 cp -R /root/world /root/backup/.
-tar -zcvf ${backupPath} -C /root/backup world
+
+tar -zcvf /root/backup/${FILENAME} -C /root/backup world  > /dev/null
+
 rm -rfv /root/backup/world
