@@ -5,12 +5,8 @@
 !/minecraft-vanilla/world/.gitkeep
 /minecraft-paper/backup/*
 !/minecraft-paper/backup/.gitkeep
-/minecraft-paper/world/*
-!/minecraft-paper/world/.gitkeep
-/minecraft-paper/world_nether/*
-!/minecraft-paper/world_nether/.gitkeep
-/minecraft-paper/world_the_end/*
-!/minecraft-paper/world_the_end/.gitkeep
+/minecraft-paper/worlds/*
+!/minecraft-paper/worlds/.gitkeep
 /minecraft-paper/plugins/*
 !/minecraft-paper/plugins/.gitkeep
 /client/data/*

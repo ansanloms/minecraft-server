@@ -3,18 +3,12 @@ set -euo pipefail
 
 FILENAME="$(date --iso-8601="seconds").tar.gz"
 
-rm -rf /root/backup/world
-rm -rf /root/backup/world_nether
-rm -rf /root/backup/world_the_end
+rm -rf /root/backup/worlds
 
-cp -R /root/world /root/backup/.
-cp -R /root/world_nether /root/backup/.
-cp -R /root/world_the_end /root/backup/.
+cp -R /root/worlds /root/backup/.
 
-tar -zcvf /root/backup/${FILENAME} -C /root/backup world world_nether world_the_end > /dev/null
+tar -zcvf /root/backup/${FILENAME} -C /root/backup worlds > /dev/null
 
-rm -rf /root/backup/world
-rm -rf /root/backup/world_nether
-rm -rf /root/backup/world_the_end
+rm -rf /root/backup/worlds
 
 echo ${FILENAME}

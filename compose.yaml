@@ -93,14 +93,8 @@ services:
         source: ./minecraft-paper/whitelist.json
         target: /root/whitelist.json
       - type: bind
-        source: ./minecraft-paper/world
-        target: /root/world
-      - type: bind
-        source: ./minecraft-paper/world_nether
-        target: /root/world_nether
-      - type: bind
-        source: ./minecraft-paper/world_the_end
-        target: /root/world_the_end
+        source: ./minecraft-paper/worlds
+        target: /root/worlds
       - type: bind
         source: ./minecraft-paper/plugins
         target: /root/plugins
