@@ -1,4 +1,4 @@
-FROM docker.io/amazoncorretto:21.0.2-al2023-headless
+FROM docker.io/amazoncorretto:22.0.1-al2023-headless
 
 ARG VERSION
 ARG PAPER_BUILD

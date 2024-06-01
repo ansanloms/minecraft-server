@@ -1,7 +1,7 @@
 name: minecraft-server
 services:
   proxy:
-    image: docker.io/nginx:1.25.4
+    image: docker.io/nginx:1.27.0
     profiles:
       - vanilla
       - paper

@@ -1,4 +1,4 @@
-FROM docker.io/alpine:3.19.1
+FROM docker.io/alpine:3.20.0
 
 ENV MCRCON_HOST=${MCRCON_HOST}
 ENV MCRCON_PORT=${MCRCON_PORT}
