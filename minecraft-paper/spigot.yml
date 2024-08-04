@@ -34,6 +34,8 @@ settings:
   moved-too-quickly-multiplier: 10.0
   netty-threads: 4
   attribute:
+    maxAbsorption:
+      max: 2048.0
     maxHealth:
       max: 2048.0
     movementSpeed:
@@ -45,13 +47,14 @@ settings:
   debug: false
 world-settings:
   default:
+    unload-frozen-chunks: false
     below-zero-generation-in-existing-chunks: true
     view-distance: default
     simulation-distance: default
     thunder-chance: 100000
     merge-radius:
       item: 2.5
-      exp: 3.0
+      exp: -1.0
     mob-spawn-range: 8
     item-despawn-rate: 6000
     arrow-despawn-rate: 1200
@@ -86,10 +89,10 @@ world-settings:
       glowberry-modifier: 100
       pitcherplant-modifier: 100
     entity-activation-range:
-      animals: 32
-      monsters: 32
+      animals: 64
+      monsters: 64
       raiders: 48
-      misc: 16
+      misc: 32
       water: 16
       villagers: 32
       flying-monsters: 32
@@ -112,9 +115,9 @@ world-settings:
       tick-inactive-villagers: true
       ignore-spectators: false
     entity-tracking-range:
-      players: 48
+      players: 144
       animals: 48
-      monsters: 48
+      monsters: 64
       misc: 32
       display: 128
       other: 64

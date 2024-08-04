@@ -12,7 +12,7 @@
 # Discord: https://discord.gg/papermc
 # Website: https://papermc.io/
 
-_version: 30
+_version: 31
 anticheat:
   anti-xray:
     enabled: false
@@ -66,7 +66,7 @@ chunks:
     snowball: -1
   fixed-chunk-inhabited-time: -1
   flush-regions-on-save: false
-  max-auto-save-chunks-per-tick: 24
+  max-auto-save-chunks-per-tick: 9
   prevent-moving-into-unloaded-chunks: false
 collisions:
   allow-player-cramming-damage: false
@@ -84,7 +84,7 @@ entities:
   behavior:
     allow-spider-world-border-climbing: true
     baby-zombie-movement-modifier: 0.5
-    disable-chest-cat-detection: false
+    disable-chest-cat-detection: true
     disable-creeper-lingering-effect: false
     disable-player-crits: false
     door-breaking-difficulty:
@@ -133,7 +133,6 @@ entities:
       wither: true
       wither-skeleton: true
     spiders-immune-to-poison-effect: true
-    undead-immune-to-certain-effects: true
   sniffer:
     boosted-hatch-time: default
     hatch-time: default
@@ -144,7 +143,7 @@ entities:
       items:
         cobblestone: 300
     count-all-mobs-for-spawning: false
-    creative-arrow-despawn-rate: default
+    creative-arrow-despawn-rate: '60'
     despawn-ranges:
       ambient:
         hard: 128
@@ -159,8 +158,8 @@ entities:
         hard: 128
         soft: 32
       monster:
-        hard: 128
-        soft: 32
+        hard: 96
+        soft: 28
       underground_water_creature:
         hard: 128
         soft: 32
@@ -183,7 +182,7 @@ entities:
     - SleepingZ
     iron-golems-can-spawn-in-air: false
     monster-spawn-max-light-level: default
-    non-player-arrow-despawn-rate: default
+    non-player-arrow-despawn-rate: '60'
     per-player-mob-spawns: true
     scan-for-legacy-ender-dragon: true
     skeleton-horse-thunder-spawn-chance: default
@@ -238,10 +237,11 @@ environment:
       min: 20
     enabled: true
   generate-flat-bedrock: false
+  locate-structures-outside-world-border: false
   max-block-ticks: 65536
   max-fluid-ticks: 65536
   nether-ceiling-void-damage-height: disabled
-  optimize-explosions: false
+  optimize-explosions: true
   portal-create-radius: 16
   portal-search-radius: 128
   portal-search-vanilla-dimension-scaling: true
@@ -265,7 +265,7 @@ fixes:
   tnt-entity-height-nerf: disabled
 hopper:
   cooldown-when-full: true
-  disable-move-event: false
+  disable-move-event: true
   ignore-occluding-blocks: false
 lootables:
   auto-replenish: false
@@ -290,7 +290,7 @@ misc:
   disable-sprint-interruption-on-attack: false
   light-queue-size: 20
   max-leash-distance: 10.0
-  redstone-implementation: VANILLA
+  redstone-implementation: EIGENCRAFT
   shield-blocking-delay: 5
   show-sign-click-command-failure-msgs-to-player: false
   update-pathfinding-on-block-update: true
@@ -305,9 +305,9 @@ tick-rates:
   behavior:
     villager:
       validatenearbypoi: -1
-  container-update: 1
+  container-update: 3
   dry-farmland: 1
-  grass-spread: 1
+  grass-spread: 4
   mob-spawner: 1
   sensor:
     villager:
